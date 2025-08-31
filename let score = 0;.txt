@@ -1,0 +1,6 @@
+let score = 0;
+
+function clickCrystal() {
+  score++;
+  document.getElementById("score").textContent = "Your Score: " + score;
+}
