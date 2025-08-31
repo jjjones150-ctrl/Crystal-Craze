@@ -1,0 +1,26 @@
+let crystals = 0;
+let coins = 0;
+let clickPower = 1;
+let upgradeCost = 10;
+
+const countEl = document.getElementById('count');
+const coinsEl = document.getElementById('coins');
+const crystalEl = document.getElementById('crystal');
+const upgradeBtn = document.getElementById('upgrade');
+
+crystalEl.addEventListener('click', () => {
+  crystals += clickPower;
+  coins += clickPower;
+  countEl.textContent = crystals;
+  coinsEl.textContent = coins;
+});
+
+upgradeBtn.addEventListener('click', () => {
+  if (coins >= upgradeCost) {
+    coins -= upgradeCost;
+    clickPower += 1;
+    upgradeCost = Math.floor(upgradeCost * 1.5);
+    upgradeBtn.textContent = `Upgrade Pickaxe (Cost: ${upgradeCost} coins)`;
+    coinsEl.textContent = coins;
+  }
+});
